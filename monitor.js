@@ -230,19 +230,19 @@ var triggerTrapper = function(dataFile, host, callback){
 	else {
 		cp.execFile("zabbix_sender", ["-vv", "-T", "-z", ZABBIX_HOST, "-i", dataFile], {}, function(err, stdout, stderr) {
 			if(re = stdout.toString().match(/sent: ([0-9]+); skipped: ([0-9]+); total: ([0-9]+)/)) {
-				console.log("INFO: [" + host + "] [glob] sent " + re[1] + "/" + re[3] + " values!");
+				console.log("INFO: [" + host + "] sent " + re[1] + "/" + re[3] + " values!");
 			}
 
 			if(re = stderr.toString().replace(/[\n\r]/, "").match(/\[(\{.+\})\]/)) {
 				try {
 					var json = JSON.parse(re[1]);
 					if(json.response == "success") {
-						console.log("INFO: [" + host + "] [glob] zabbix_sender: " + json.info);
+						console.log("INFO: [" + host + "] zabbix_sender: " + json.info);
 					} else {
-						console.log("ERR : [" + host + "] [glob] zabbix_sender: " + json.info);
+						console.log("ERR : [" + host + "] zabbix_sender: " + json.info);
 					}
 				} catch(e) {
-					console.log("ERR : [" + host + "] [glob] invalid json from zabbix_sender!");
+					console.log("ERR : [" + host + "] invalid json from zabbix_sender!");
 				}
 			}
 			callback();
