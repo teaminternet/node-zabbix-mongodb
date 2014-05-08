@@ -1,0 +1,18 @@
+{
+	"name": "zabbix-mongodb",
+	"author": "Markus Ostertag <markus@teaminternet.de",
+	"contributors": [
+		"Robert Schmalholz <robert@teaminternet.de>",
+		"Markus Ostertag <markus@teaminternet.de"
+	],
+	"description": "This application ships mongodb metrics to a local zabbix trapper agent.",
+	"version": "0.1.0",
+	"repository": { "type" : "git", "url" : "https://github.com/teaminternet/node-zabbix-mongodb"},
+	"license": "Apache-2.0",
+	"dependencies" : {
+		"mongodb"     :   "1.4.x"
+	},
+	"engines": {
+		"node": ">=0.8"
+	}
+}
