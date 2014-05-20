@@ -122,7 +122,7 @@ var parseRepl = function(data, host, visHost){
 		}
 	} else {
 		if(primary && data.self && primary.optime && data.self.optime) {
-			data.self.slaveLag = primary.optime - data.self.optime;
+			data.self.slaveLag = primary.optime.toInt() - data.self.optime.toInt();
 			if(data.self.slaveLag < 0)
 				data.self.slaveLag = 0;
 		}
